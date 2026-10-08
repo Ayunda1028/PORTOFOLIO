@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Ayunda Eka Trisnawati</title>
+    
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        
+        body {
+            background-color: #f3e5e8;
+            background-image: 
+                linear-gradient(135deg, #1b3042 25%, transparent 25%), 
+                linear-gradient(225deg, #1b3042 25%, transparent 25%), 
+                linear-gradient(45deg, #1b3042 25%, transparent 25%), 
+                linear-gradient(315deg, #1b3042 25%, #f3e5e8 25%);
+            background-size: 80px 80px;
+            background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
+            background-attachment: fixed;
+            color: #1b3042;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(125deg, transparent 40%, #e0a3b0 40%, #e0a3b0 42%, transparent 42%),
+                linear-gradient(125deg, transparent 70%, #1b3042 70%, #1b3042 73%, transparent 73%);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        
+        header {
+            background-color: #1b3042;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 4px solid #e0a3b0;
+        }
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            font-weight: 600;
+            color: #f3e5e8;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #e0a3b0;
+        }
+
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #1b3042;
+            color: #ffffff;
+            padding: 3.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #e0a3b0;
+        }
+
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 120px;
+            height: 120px;
+            background-image: radial-gradient(#e0a3b0 20%, transparent 20%);
+            background-size: 12px 12px;
+            opacity: 0.5;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #e0a3b0;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+            font-weight: 800;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e0a3b0;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero p.bio {
+            font-size: 1rem;
+            color: #f3e5e8;
+            max-width: 750px;
+        }
+
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(27, 48, 66, 0.1);
+            margin-bottom: 2rem;
+            border-left: 6px solid #1b3042;
+            position: relative;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            color: #1b3042;
+            border-bottom: 3px solid #e0a3b0;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-item {
+            margin-bottom: 0.5rem;
+        }
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: #1b3042;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f3e5e8;
+            height: 14px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e0a3b0;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #1b3042;
+            border-radius: 10px;
+        }
+
+        
+        .timeline-item {
+            margin-bottom: 1.4rem;
+            border-left: 3px solid #e0a3b0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            color: #1b3042;
+            font-weight: 700;
+        }
+        .timeline-item .role {
+            font-weight: 600;
+            color: #c47b8c;
+            font-size: 0.95rem;
+        }
+        .timeline-item .period {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 0.2rem;
+        }
+
+        
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .hobby-card {
+            background: #1b3042;
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #ffffff;
+            border-bottom: 3px solid #e0a3b0;
+        }
+
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .contact-card {
+            background: #f3e5e8;
+            padding: 1.2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 4px solid #1b3042;
+        }
+        .contact-card strong {
+            display: block;
+            color: #1b3042;
+            font-size: 0.9rem;
+        }
+        .contact-card span, .contact-card a {
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background-color: #1b3042;
+            color: #f3e5e8;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            border-top: 4px solid #e0a3b0;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <nav>
+            <div class="logo">Ayunda Eka Trisnawati</div>
+            <ul class="nav-links">
+                <li><a href="#tentang">Profil</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#prestasi">Prestasi</a></li>
+                <li><a href="#pengalaman">Pengalaman</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section class="hero" id="tentang">
+            
+            <img src="1787925980892.jpg.jpeg" alt="Ayunda Eka Trisnawati" class="profile-img">
+            <h1>Ayunda Eka Trisnawati</h1>
+            <div class="subtitle">Mahasiswa Baru Teknik Informatika - UNESA</div>
+            <p class="bio">
+                Saya adalah mahasiswa baru yang memiliki semangat belajar tinggi, mampu bekerja secara individu maupun tim, serta memiliki minat di bidang IT. Saya tertarik di bidang Web/App Development, Artificial Intelligence & Data, UI/UX Design dan saya akan belajar lebih mendalam agar lebih memahami tentang percodingan. Siap untuk berkembang dan berkontribusi dalam lingkungan kerja, serta bermanfaat bagi masyarakat untuk masa depan.
+            </p>
+        </section>
+
+        
+        <section class="section" id="keahlian">
+            <h2 class="section-title">Keahlian</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Manajemen waktu yang baik</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Kemampuan komunikasi efektif</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Kerja sama tim</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Kepemimpinan dasar</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 88%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section" id="prestasi">
+            <h2 class="section-title">Prestasi & Penghargaan</h2>
+            
+            <div class="timeline-item">
+                <h3>Olympiad Of New Year (ONY) #2 Biology</h3>
+                <div class="role">Gold Medal</div>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Olympiad Of New Year (ONY) #2 Medical Science</h3>
+                <div class="role">Gold Medal</div>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Olympiad Of New Year (ONY) #2 Chemistry</h3>
+                <div class="role">Juara 2</div>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Finalis Duta Pramuka Indonesia</h3>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Pramuka Garuda</h3>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Olimpiade Sains Airlangga (OSA)</h3>
+                <div class="period">2024 & 2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Olympiad Methanol</h3>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Kofein</h3>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>KSR Matematika</h3>
+                <div class="period">2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Juara 2 Kata Perorangan SMA Putri Se-Eks Karesidenan Madiun</h3>
+                <div class="period">2023</div>
+            </div>
+        </section>
+
+        
+        <section class="section" id="pengalaman">
+            <h2 class="section-title">Pengalaman Organisasi & Kegiatan</h2>
+            
+            <div class="timeline-item">
+                <h3>PRAMUKA SMAN 1 NGAWI</h3>
+                <div class="role">Sekretaris & Pembinaan dan Pengembangan</div>
+                <div class="period">2024 - 2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>SAKA BAKTI HUSADA PUSKESMAS NGAWI KOTA</h3>
+                <div class="role">Sekretaris</div>
+                <div class="period">2024 - 2025</div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>PTA, PAS, VRST, MUSTEGAK SMAN 1 NGAWI</h3>
+                <div class="role">Dokumentasi</div>
+                <div class="period">2024 - 2025</div>
+            </div>
+        </section>
+
+        
+        <section class="section" id="pendidikan">
+            <h2 class="section-title">Pendidikan</h2>
+            <div class="timeline-item">
+                <h3>Teknik Informatika - Universitas Negeri Surabaya (UNESA)</h3>
+                <div class="period">Mahasiswa Baru</div>
+            </div>
+            <div class="timeline-item">
+                <h3>SMA Negeri 1 Ngawi</h3>
+            </div>
+            <div class="timeline-item">
+                <h3>SMP Negeri 1 Margomulyo</h3>
+            </div>
+            <div class="timeline-item">
+                <h3>SD Negeri Margomulyo 2</h3>
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <h2 class="section-title">Hobi</h2>
+            <div class="hobby-grid">
+                <div class="hobby-card">📖 Membaca Buku</div>
+                <div class="hobby-card">🎵 Bermain Musik</div>
+                <div class="hobby-card">⚽ Olahraga</div>
+                <div class="hobby-card">🍳 Memasak</div>
+            </div>
+        </section>
+
+        
+        <section class="section" id="kontak">
+            <h2 class="section-title">Kontak & Alamat</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div>
+                        <strong>Telepon / WhatsApp</strong>
+                        <span>+62 822-4461-6198</span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div>
+                        <strong>Instagram</strong>
+                        <span>@ayundaekatrisna</span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div>
+                        <strong>Email</strong>
+                        <a href="mailto:ekatrisnawatiayunda@gmail.com">ekatrisnawatiayunda@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div>
+                        <strong>Alamat Lengkap</strong>
+                        <span>Dusun Jepang, Rt.01/Rw.05, Desa Margomulyo, Kecamatan Margomulyo, Kabupaten Bojonegoro</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2026 Ayunda Eka Trisnawati. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
